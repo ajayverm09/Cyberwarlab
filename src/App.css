@@ -1,0 +1,491 @@
+@import 'tailwindcss';
+
+/* ============================================
+   GLOBAL ANIMATIONS - RED BLACK THEME
+   ============================================ */
+
+/* Smooth Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Red Glow Pulse - DISABLED */
+/* @keyframes redGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+  }
+}
+
+.animate-redGlow {
+  animation: redGlowPulse 2s ease-in-out infinite;
+} */
+
+/* Red Border Flow - DISABLED */
+/* @keyframes redBorderFlow {
+  0% {
+    border-color: rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    border-color: rgba(220, 38, 38, 0.8);
+  }
+  100% {
+    border-color: rgba(220, 38, 38, 0.3);
+  }
+}
+
+.animate-redBorder {
+  animation: redBorderFlow 3s ease-in-out infinite;
+} */
+
+/* Shimmer Effect for Cards */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(220, 38, 38, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Cyber Grid Movement */
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+.animate-gridMove {
+  animation: gridMove 20s linear infinite;
+}
+
+/* Typing Effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(220, 38, 38, 0.8);
+  animation: typing 3s steps(40) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Pulse Ring */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-pulseRing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(220, 38, 38, 0.4);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Rotation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-custom {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Stagger Animation Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* ============================================
+   SCROLL TRIGGERED ANIMATIONS
+   ============================================ */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+/* Card Hover Lift */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.hover-glitch:hover {
+  animation: glitch 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shine Effect */
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.hover-shine:hover::before {
+  left: 100%;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+/* Skeleton Loading */
+@keyframes skeletonLoading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    #18181b 0%,
+    #27272a 50%,
+    #18181b 100%
+  );
+  background-size: 200px 100%;
+  animation: skeletonLoading 1.5s infinite;
+}
+
+/* Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   TEXT GRADIENT ANIMATION
+   ============================================ */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* ============================================
+   RED BLACK THEME SPECIFIC
+   ============================================ */
+
+/* Red Line Animation - DISABLED */
+/* @keyframes redLineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-redLine {
+  position: relative;
+}
+
+.animate-redLine::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+  animation: redLineExpand 0.5s ease-out forwards;
+} */
+
+/* Particle Effect */
+@keyframes particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+.animate-particle {
+  animation: particle 1s ease-out forwards;
+}
+
+/* Scan Line Effect - DISABLED */
+/* @keyframes scanLine {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.animate-scanLine {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-scanLine::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.8), transparent);
+  animation: scanLine 2s linear infinite;
+} */
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Smooth transitions for all interactive elements */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   PREFERS REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
